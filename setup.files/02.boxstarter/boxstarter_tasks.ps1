@@ -181,16 +181,13 @@ if ($win8 -or $win10) {
 }
 
 & { ### JS dev
-  cinst --cacheLocation="$cache" nodist
-
-  $nodist = [IO.Path]::Combine(${env:ProgramFiles(x86)}, 'Nodist', 'bin')
-  $env:Path += ";$($nodist)"
-  nodist + 10
-  nodist + 12
-  nodist + 14
-  nodist global 14
-  nodist npm global match
-  npm install -g npx serverless yarn
+  cinst --cacheLocation="$cache" nvm
+  $nvm = Join-Path $env:ProgramData nvm
+  $env:Path += ";$($nvm)"
+  nvm install latest
+  nvm use (nvm list)
+  npm install -g npm
+  npm install -g yarn
   # npm install -g windows-build-tools # !! Freeze !!
 }
 
