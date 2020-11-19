@@ -72,30 +72,30 @@ if ($win8 -or $win10) {
 }
 
 & { # Devices
-  cinst --cacheLocation="$cache" autohotkey
-  cinst --cacheLocation="$cache" drobo-dashboard
+  # cinst --cacheLocation="$cache" autohotkey
+  # cinst --cacheLocation="$cache" drobo-dashboard
   cinst --cacheLocation="$cache" logicoolgaming
   # cinst --cacheLocation="$cache" xbox360-controller # <- depended to GUI interactive
 }
 
 & { # Audio
-  cinst --cacheLocation="$cache" voicemeeter
-  cinst --cacheLocation="$cache" mrswatson
+  # cinst --cacheLocation="$cache" voicemeeter
+  # cinst --cacheLocation="$cache" mrswatson
   # You should install iTunes from store.
 }
 
 & { ### Cloud storage
   # cinst --cacheLocation="$cache" adobe-creative-cloud # <- Error?
-  cinst --cacheLocation="$cache" dropbox
+  # cinst --cacheLocation="$cache" dropbox
   # You should install iCloud from store.
 }
 
 & { # Browsers
   cinst --cacheLocation="$cache" microsoft-edge
-  cinst --cacheLocation="$cache" chromium --pre
-  cinst --cacheLocation="$cache" firefox -params "'/l:ja-JP /NoDesktopShortcut /RemoveDistributionDir'"
-  cinst --cacheLocation="$cache" googlechrome
-  cinst --cacheLocation="$cache" kindle
+  # cinst --cacheLocation="$cache" chromium --pre
+  # cinst --cacheLocation="$cache" firefox -params "'/l:ja-JP /NoDesktopShortcut /RemoveDistributionDir'"
+  # cinst --cacheLocation="$cache" googlechrome
+  # cinst --cacheLocation="$cache" kindle
 }
 
 & { ### CLI tools
@@ -132,11 +132,11 @@ if ($win8 -or $win10) {
 }
 
 & { ### Editor
-  cinst --cacheLocation="$cache" atom
-  cinst --cacheLocation="$cache" boostnote
-  cinst --cacheLocation="$cache" grammarly
-  cinst --cacheLocation="$cache" notion
-  cinst --cacheLocation="$cache" sublimetext3.app
+  # cinst --cacheLocation="$cache" atom
+  # cinst --cacheLocation="$cache" boostnote
+  # cinst --cacheLocation="$cache" grammarly
+  # cinst --cacheLocation="$cache" notion
+  # cinst --cacheLocation="$cache" sublimetext3.app
   cinst --cacheLocation="$cache" vim --params "'/NoDesktopShortcuts /RestartExplorer'"
   cinst --cacheLocation="$cache" vscode -params '"/NoDesktopIcon"'
 
@@ -188,33 +188,36 @@ if ($win8 -or $win10) {
   nodist + 10
   nodist + 12
   nodist + 14
-  nodist global 14
+  nodist + 15
+  nodist global 15
   nodist npm global match
   npm install -g npx serverless yarn
   # npm install -g windows-build-tools # !! Freeze !!
 }
 
 & { ### Web dev
-  cinst --cacheLocation="$cache" python # Need for aws
   cinst --cacheLocation="$cache" mkcert
   cinst --cacheLocation="$cache" awscli
 }
 
 & { ### Game dev
-  cinst --cacheLocation="$cache" androidstudio
-  cinst --cacheLocation="$cache" unity-hub
-  cinst --cacheLocation="$cache" sidequest
-  cinst --cacheLocation="$cache" visualstudio2019community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale ja-JP"
+  # cinst --cacheLocation="$cache" androidstudio
+  # cinst --cacheLocation="$cache" unity-hub
+  # cinst --cacheLocation="$cache" sidequest
+  # cinst --cacheLocation="$cache" visualstudio2019community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale ja-JP"
 }
 
 & { ### SNS, IM
   cinst --cacheLocation="$cache" discord
-  cinst --cacheLocation="$cache" keybase
-  cinst --cacheLocation="$cache" zoom
+  # cinst --cacheLocation="$cache" keybase
+  # cinst --cacheLocation="$cache" zoom
   # You should install FB-Messenger, Skype and Slack from store.
 }
 
 & { ### Virtualization
+  # WSL
+  cinst --cacheLocation="$cache" wsl-ubuntu-1804
+
   cinst --cacheLocation="$cache" virtualbox -params "'/ExtensionPack /NoDesktopShortcut'"
   cinst --cacheLocation="$cache" vagrant
 
@@ -225,9 +228,6 @@ if ($win8 -or $win10) {
   else {
     cinst --cacheLocation="$cache" docker-toolbox
   }
-
-  # WSL
-  cinst --cacheLocation="$cache" wsl-ubuntu-1804
 }
 
 & { ### Miscs
@@ -238,11 +238,11 @@ if ($win8 -or $win10) {
   cinst --cacheLocation="$cache" noto
 
   # Utils
-  cinst --cacheLocation="$cache" authy-desktop
-  cinst --cacheLocation="$cache" wkhtmltopdf
+  # cinst --cacheLocation="$cache" authy-desktop
+  # cinst --cacheLocation="$cache" wkhtmltopdf
 
   # Multimedia
-  cinst --cacheLocation="$cache" obs-studio
+  # cinst --cacheLocation="$cache" obs-studio
 
   # Games
   cinst --cacheLocation="$cache" epicgameslauncher
