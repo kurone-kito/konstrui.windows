@@ -21,12 +21,12 @@ cinst --cacheLocation="$cache" boxstarter
 ### Winows 8.1 or 10 features
 if ($win8 -or $win10) {
   # Without vagrant
-  if ($win10pro -and !(Test-Path -Path C:\vagrant)) {
-    cinst --cacheLocation="$cache" Microsoft-Hyper-V-All --source windowsfeatures
-    cinst --cacheLocation="$cache" VirtualMachinePlatform --source windowsfeatures
-    cinst --cacheLocation="$cache" HypervisorPlatform --source windowsfeatures
-    cinst --cacheLocation="$cache" Containers-DisposableClientVM --source windowsfeatures
-  }
+  # if ($win10pro -and !(Test-Path -Path C:\vagrant)) {
+  #   cinst --cacheLocation="$cache" Microsoft-Hyper-V-All --source windowsfeatures
+  #   cinst --cacheLocation="$cache" VirtualMachinePlatform --source windowsfeatures
+  #   cinst --cacheLocation="$cache" HypervisorPlatform --source windowsfeatures
+  #   cinst --cacheLocation="$cache" Containers-DisposableClientVM --source windowsfeatures
+  # }
 
   # NFS
   cinst --cacheLocation="$cache" ServicesForNFS-ClientOnly --source windowsfeatures
@@ -69,6 +69,7 @@ if ($win8 -or $win10) {
     cinst --cacheLocation="$cache" vcredist-all
   }
   cinst --cacheLocation="$cache" directx
+  cinst --cacheLocation="$cache" dotnet
 }
 
 & { # Devices
@@ -123,8 +124,6 @@ if ($win8 -or $win10) {
 
 & { ### Basic dev
   # SDKs
-  cinst --cacheLocation="$cache" netfx-4.7.2-devpack
-  cinst --cacheLocation="$cache" dotnetcore-sdk
   cinst --cacheLocation="$cache" openjdk
   cinst --cacheLocation="$cache" python # Need for aws
 
@@ -216,18 +215,18 @@ if ($win8 -or $win10) {
 
 & { ### Virtualization
   # WSL
-  cinst --cacheLocation="$cache" wsl-ubuntu-1804
+  # cinst --cacheLocation="$cache" wsl-ubuntu-1804
 
-  cinst --cacheLocation="$cache" virtualbox -params "'/ExtensionPack /NoDesktopShortcut'"
-  cinst --cacheLocation="$cache" vagrant
+  # cinst --cacheLocation="$cache" virtualbox -params "'/ExtensionPack /NoDesktopShortcut'"
+  # cinst --cacheLocation="$cache" vagrant
 
   # Docker
-  if ($win10pro) {
-    cinst --cacheLocation="$cache" docker-desktop
-  }
-  else {
-    cinst --cacheLocation="$cache" docker-toolbox
-  }
+  # if ($win10pro) {
+  #   cinst --cacheLocation="$cache" docker-desktop
+  # }
+  # else {
+  #   cinst --cacheLocation="$cache" docker-toolbox
+  # }
 }
 
 & { ### Miscs
