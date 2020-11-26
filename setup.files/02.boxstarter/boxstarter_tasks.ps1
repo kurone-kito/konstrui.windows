@@ -31,7 +31,7 @@ if ($win8 -or $win10) {
   # NFS
   cinst --cacheLocation="$cache" ServicesForNFS-ClientOnly --source windowsfeatures
   cinst --cacheLocation="$cache" ClientForNFS-Infrastructure --source windowsfeatures
-  cinst --cacheLocation="$cache" NFS-administration --source windowsfeatures
+  # cinst --cacheLocation="$cache" NFS-administration --source windowsfeatures
 }
 
 & { ### Common Windows features
@@ -73,7 +73,7 @@ if ($win8 -or $win10) {
 }
 
 & { # Devices
-  cinst --cacheLocation="$cache" autohotkey
+  # cinst --cacheLocation="$cache" autohotkey
   cinst --cacheLocation="$cache" drobo-dashboard
   cinst --cacheLocation="$cache" logicoolgaming
   # cinst --cacheLocation="$cache" xbox360-controller # <- depended to GUI interactive
@@ -87,16 +87,16 @@ if ($win8 -or $win10) {
 
 & { ### Cloud storage
   # cinst --cacheLocation="$cache" adobe-creative-cloud # <- Error?
-  cinst --cacheLocation="$cache" dropbox
+  # cinst --cacheLocation="$cache" dropbox
   # You should install iCloud from store.
 }
 
 & { # Browsers
   cinst --cacheLocation="$cache" microsoft-edge
-  cinst --cacheLocation="$cache" chromium --pre
-  cinst --cacheLocation="$cache" firefox -params "'/l:ja-JP /NoDesktopShortcut /RemoveDistributionDir'"
-  cinst --cacheLocation="$cache" googlechrome
-  cinst --cacheLocation="$cache" kindle
+  # cinst --cacheLocation="$cache" chromium --pre
+  # cinst --cacheLocation="$cache" firefox -params "'/l:ja-JP /NoDesktopShortcut /RemoveDistributionDir'"
+  # cinst --cacheLocation="$cache" googlechrome
+  # cinst --cacheLocation="$cache" kindle
 }
 
 & { ### CLI tools
@@ -108,7 +108,7 @@ if ($win8 -or $win10) {
   cinst --cacheLocation="$cache" hub
   cinst --cacheLocation="$cache" jq
   cinst --cacheLocation="$cache" sudo
-  cinst --cacheLocation="$cache" svn
+  # cinst --cacheLocation="$cache" svn
 
   $SystemSSH = $false
   if ($win10) {
@@ -125,8 +125,8 @@ if ($win8 -or $win10) {
 
 & { ### Basic dev
   # SDKs
-  cinst --cacheLocation="$cache" netfx-4.7.2-devpack
-  cinst --cacheLocation="$cache" dotnetcore-sdk
+  # cinst --cacheLocation="$cache" netfx-4.7.2-devpack
+  # cinst --cacheLocation="$cache" dotnetcore-sdk
   cinst --cacheLocation="$cache" openjdk
   cinst --cacheLocation="$cache" python # Need for aws
 
@@ -134,47 +134,47 @@ if ($win8 -or $win10) {
 }
 
 & { ### Editor
-  cinst --cacheLocation="$cache" atom
-  cinst --cacheLocation="$cache" boostnote
-  cinst --cacheLocation="$cache" grammarly
-  cinst --cacheLocation="$cache" notion
-  cinst --cacheLocation="$cache" sublimetext3.app
+  # cinst --cacheLocation="$cache" atom
+  # cinst --cacheLocation="$cache" boostnote
+  # cinst --cacheLocation="$cache" grammarly
+  # cinst --cacheLocation="$cache" notion
+  # cinst --cacheLocation="$cache" sublimetext3.app
   cinst --cacheLocation="$cache" vim --params "'/NoDesktopShortcuts /RestartExplorer'"
   cinst --cacheLocation="$cache" vscode -params '"/NoDesktopIcon"'
 
   $VSCodeExtensions = @(
     'aaron-bond.better-comments',
     'alefragnani.Bookmarks',
-    'asvetliakov.snapshot-tools',
-    'britesnow.vscode-toggle-quotes',
+    # 'asvetliakov.snapshot-tools',
+    # 'britesnow.vscode-toggle-quotes',
     'chrislajoie.vscode-modelines',
     'coenraads.bracket-pair-colorizer-2',
     'DavidAnson.vscode-markdownlint',
-    'dbaeumer.vscode-eslint',
-    'denco.confluence-markup',
+    # 'dbaeumer.vscode-eslint',
+    # 'denco.confluence-markup',
     'donjayamanne.githistory',
     'eamodio.gitlens',
     'EditorConfig.EditorConfig',
-    'eg2.vscode-npm-script',
-    'esbenp.prettier-vscode',
+    # 'eg2.vscode-npm-script',
+    # 'esbenp.prettier-vscode',
     'fallenwood.vimL',
-    'GrapeCity.gc-excelviewer',
+    # 'GrapeCity.gc-excelviewer',
     'jebbs.plantuml',
-    'kumar-harsh.graphql-for-vscode',
-    'marcostazi.VS-code-vagrantfile',
+    # 'kumar-harsh.graphql-for-vscode',
+    # 'marcostazi.VS-code-vagrantfile',
     'mikestead.dotenv',
-    'ms-azuretools.vscode-docker',
+    # 'ms-azuretools.vscode-docker',
     'MS-CEINTL.vscode-language-pack-ja',
-    'ms-vscode.js-debug-nightly',
+    # 'ms-vscode.js-debug-nightly',
     'ms-vscode.powershell',
-    'ms-vscode.vscode-typescript-next',
+    # 'ms-vscode.vscode-typescript-next',
     'ms-vscode-remote.vscode-remote-extensionpack',
-    'msjsdiag.debugger-for-chrome',
-    'orta.vscode-jest',
+    # 'msjsdiag.debugger-for-chrome',
+    # 'orta.vscode-jest',
     'satokaz.vscode-bs-ctrlchar-remover',
     'sidneys1.gitconfig',
-    'VisualStudioExptTeam.vscodeintellicode',
-    'vscoss.vscode-ansible'
+    'VisualStudioExptTeam.vscodeintellicode'
+    # 'vscoss.vscode-ansible'
   )
   $env:Path += ";$($env:ProgramFiles)\Microsoft VS Code\bin"
   $VSCodeExtensions | ForEach-Object {
@@ -187,9 +187,9 @@ if ($win8 -or $win10) {
 
   $nodist = [IO.Path]::Combine(${env:ProgramFiles(x86)}, 'Nodist', 'bin')
   $env:Path += ";$($nodist)"
-  nodist + 10
-  nodist + 12
-  nodist + 14
+  # nodist + 10
+  # nodist + 12
+  # nodist + 14
   nodist + 15
   nodist global 15
   nodist npm global match
@@ -198,39 +198,39 @@ if ($win8 -or $win10) {
 }
 
 & { ### Web dev
-  cinst --cacheLocation="$cache" python # Need for aws
-  cinst --cacheLocation="$cache" mkcert
-  cinst --cacheLocation="$cache" awscli
+  # cinst --cacheLocation="$cache" python # Need for aws
+  # cinst --cacheLocation="$cache" mkcert
+  # cinst --cacheLocation="$cache" awscli
 }
 
 & { ### Game dev
-  cinst --cacheLocation="$cache" androidstudio
-  cinst --cacheLocation="$cache" unity-hub
-  cinst --cacheLocation="$cache" sidequest
-  cinst --cacheLocation="$cache" visualstudio2019community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale ja-JP"
+  # cinst --cacheLocation="$cache" androidstudio
+  # cinst --cacheLocation="$cache" unity-hub
+  # cinst --cacheLocation="$cache" sidequest
+  # cinst --cacheLocation="$cache" visualstudio2019community --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale ja-JP"
 }
 
 & { ### SNS, IM
-  cinst --cacheLocation="$cache" discord
-  cinst --cacheLocation="$cache" keybase
-  cinst --cacheLocation="$cache" zoom
+  # cinst --cacheLocation="$cache" discord
+  # cinst --cacheLocation="$cache" keybase
+  # cinst --cacheLocation="$cache" zoom
   # You should install FB-Messenger, Skype and Slack from store.
 }
 
 & { ### Virtualization
-  cinst --cacheLocation="$cache" virtualbox -params "'/ExtensionPack /NoDesktopShortcut'"
-  cinst --cacheLocation="$cache" vagrant
+  # cinst --cacheLocation="$cache" virtualbox -params "'/ExtensionPack /NoDesktopShortcut'"
+  # cinst --cacheLocation="$cache" vagrant
 
-  # Docker
-  if ($win10pro) {
-    cinst --cacheLocation="$cache" docker-desktop
-  }
-  else {
-    cinst --cacheLocation="$cache" docker-toolbox
-  }
+  # # Docker
+  # if ($win10pro) {
+  #   cinst --cacheLocation="$cache" docker-desktop
+  # }
+  # else {
+  #   cinst --cacheLocation="$cache" docker-toolbox
+  # }
 
   # WSL
-  cinst --cacheLocation="$cache" wsl-ubuntu-2004
+  # cinst --cacheLocation="$cache" wsl-ubuntu-2004
 }
 
 & { ### Miscs
@@ -238,20 +238,20 @@ if ($win8 -or $win10) {
   # You should install CineBench and Crystal from store.
 
   # Fonts
-  cinst --cacheLocation="$cache" noto
+  # cinst --cacheLocation="$cache" noto
 
   # Utils
-  cinst --cacheLocation="$cache" authy-desktop
-  cinst --cacheLocation="$cache" wkhtmltopdf
+  # cinst --cacheLocation="$cache" authy-desktop
+  # cinst --cacheLocation="$cache" wkhtmltopdf
 
   # Multimedia
-  cinst --cacheLocation="$cache" obs-studio
+  # cinst --cacheLocation="$cache" obs-studio
 
   # Games
-  cinst --cacheLocation="$cache" epicgameslauncher
-  cinst --cacheLocation="$cache" minecraft
-  cinst --cacheLocation="$cache" origin
-  cinst --cacheLocation="$cache" steam
+  # cinst --cacheLocation="$cache" epicgameslauncher
+  # cinst --cacheLocation="$cache" minecraft
+  # cinst --cacheLocation="$cache" origin
+  # cinst --cacheLocation="$cache" steam
 }
 
 & { ### Windows Update
