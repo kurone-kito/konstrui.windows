@@ -163,7 +163,7 @@ if ($win8 -or $win10) {
     # 'kumar-harsh.graphql-for-vscode',
     # 'marcostazi.VS-code-vagrantfile',
     'mikestead.dotenv',
-    # 'ms-azuretools.vscode-docker',
+    'ms-azuretools.vscode-docker',
     'MS-CEINTL.vscode-language-pack-ja',
     # 'ms-vscode.js-debug-nightly',
     'ms-vscode.powershell',
@@ -221,13 +221,13 @@ if ($win8 -or $win10) {
   # cinst --cacheLocation="$cache" virtualbox -params "'/ExtensionPack /NoDesktopShortcut'"
   # cinst --cacheLocation="$cache" vagrant
 
-  # # Docker
-  # if ($win10pro) {
-  #   cinst --cacheLocation="$cache" docker-desktop
-  # }
-  # else {
-  #   cinst --cacheLocation="$cache" docker-toolbox
-  # }
+  # Docker
+  if ($win10pro) {
+    cinst --cacheLocation="$cache" docker-desktop
+  }
+  else {
+    cinst --cacheLocation="$cache" docker-toolbox
+  }
 
   # WSL
   # cinst --cacheLocation="$cache" wsl-ubuntu-2004
