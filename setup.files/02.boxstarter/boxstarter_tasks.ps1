@@ -21,23 +21,23 @@ cinst --cacheLocation="$cache" boxstarter
 ### Winows 8.1 or 10 features
 if ($win8 -or $win10) {
   # Without vagrant
-  if ($win10pro -and !(Test-Path -Path C:\vagrant)) {
-    cinst --cacheLocation="$cache" Microsoft-Hyper-V-All --source windowsfeatures
-    cinst --cacheLocation="$cache" VirtualMachinePlatform --source windowsfeatures
-    cinst --cacheLocation="$cache" HypervisorPlatform --source windowsfeatures
-    cinst --cacheLocation="$cache" Containers-DisposableClientVM --source windowsfeatures
-  }
+  # if ($win10pro -and !(Test-Path -Path C:\vagrant)) {
+  #   cinst --cacheLocation="$cache" Microsoft-Hyper-V-All --source windowsfeatures
+  #   cinst --cacheLocation="$cache" VirtualMachinePlatform --source windowsfeatures
+  #   cinst --cacheLocation="$cache" HypervisorPlatform --source windowsfeatures
+  #   cinst --cacheLocation="$cache" Containers-DisposableClientVM --source windowsfeatures
+  # }
 
   # NFS
-  cinst --cacheLocation="$cache" ServicesForNFS-ClientOnly --source windowsfeatures
-  cinst --cacheLocation="$cache" ClientForNFS-Infrastructure --source windowsfeatures
+  # cinst --cacheLocation="$cache" ServicesForNFS-ClientOnly --source windowsfeatures
+  # cinst --cacheLocation="$cache" ClientForNFS-Infrastructure --source windowsfeatures
   # cinst --cacheLocation="$cache" NFS-administration --source windowsfeatures
 }
 
 & { ### Common Windows features
   # Connection
-  cinst --cacheLocation="$cache" TelnetClient --source windowsfeatures
-  cinst --cacheLocation="$cache" TFTP --source windowsfeatures
+  # cinst --cacheLocation="$cache" TelnetClient --source windowsfeatures
+  # cinst --cacheLocation="$cache" TFTP --source windowsfeatures
 
   # Others
   cinst --cacheLocation="$cache" NetFx3 --source windowsfeatures
@@ -74,7 +74,7 @@ if ($win8 -or $win10) {
 
 & { # Devices
   # cinst --cacheLocation="$cache" autohotkey
-  cinst --cacheLocation="$cache" drobo-dashboard
+  # cinst --cacheLocation="$cache" drobo-dashboard
   cinst --cacheLocation="$cache" logicoolgaming
   # cinst --cacheLocation="$cache" xbox360-controller # <- depended to GUI interactive
 }
@@ -92,7 +92,7 @@ if ($win8 -or $win10) {
 }
 
 & { # Browsers
-  cinst --cacheLocation="$cache" microsoft-edge
+  # cinst --cacheLocation="$cache" microsoft-edge
   # cinst --cacheLocation="$cache" chromium --pre
   # cinst --cacheLocation="$cache" firefox -params "'/l:ja-JP /NoDesktopShortcut /RemoveDistributionDir'"
   # cinst --cacheLocation="$cache" googlechrome
@@ -105,7 +105,7 @@ if ($win8 -or $win10) {
   cinst --cacheLocation="$cache" powershell-packagemanagement
   cinst --cacheLocation="$cache" poshgit
   cinst --cacheLocation="$cache" gpg4win
-  cinst --cacheLocation="$cache" hub
+  # cinst --cacheLocation="$cache" hub
   cinst --cacheLocation="$cache" jq
   cinst --cacheLocation="$cache" sudo
   # cinst --cacheLocation="$cache" svn
@@ -127,8 +127,8 @@ if ($win8 -or $win10) {
   # SDKs
   # cinst --cacheLocation="$cache" netfx-4.7.2-devpack
   # cinst --cacheLocation="$cache" dotnetcore-sdk
-  cinst --cacheLocation="$cache" openjdk
-  cinst --cacheLocation="$cache" python # Need for aws
+  # cinst --cacheLocation="$cache" openjdk
+  # cinst --cacheLocation="$cache" python # Need for aws
 
   cinst --cacheLocation="$cache" powershell-core --install-arguments='"ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 REGISTER_MANIFEST=1 ENABLE_PSREMOTING=1"' --packageparameters '"/CleanUpPath"'
 }
@@ -144,7 +144,7 @@ if ($win8 -or $win10) {
 
   $VSCodeExtensions = @(
     'aaron-bond.better-comments',
-    'alefragnani.Bookmarks',
+    # 'alefragnani.Bookmarks',
     # 'asvetliakov.snapshot-tools',
     # 'britesnow.vscode-toggle-quotes',
     'chrislajoie.vscode-modelines',
@@ -159,16 +159,16 @@ if ($win8 -or $win10) {
     # 'esbenp.prettier-vscode',
     'fallenwood.vimL',
     # 'GrapeCity.gc-excelviewer',
-    'jebbs.plantuml',
+    # 'jebbs.plantuml',
     # 'kumar-harsh.graphql-for-vscode',
     # 'marcostazi.VS-code-vagrantfile',
     'mikestead.dotenv',
-    'ms-azuretools.vscode-docker',
+    # 'ms-azuretools.vscode-docker',
     'MS-CEINTL.vscode-language-pack-ja',
     # 'ms-vscode.js-debug-nightly',
     'ms-vscode.powershell',
     # 'ms-vscode.vscode-typescript-next',
-    'ms-vscode-remote.vscode-remote-extensionpack',
+    # 'ms-vscode-remote.vscode-remote-extensionpack',
     # 'msjsdiag.debugger-for-chrome',
     # 'orta.vscode-jest',
     'satokaz.vscode-bs-ctrlchar-remover',
@@ -183,17 +183,17 @@ if ($win8 -or $win10) {
 }
 
 & { ### JS dev
-  cinst --cacheLocation="$cache" nodist
+  # cinst --cacheLocation="$cache" nodist
 
-  $nodist = [IO.Path]::Combine(${env:ProgramFiles(x86)}, 'Nodist', 'bin')
-  $env:Path += ";$($nodist)"
+  # $nodist = [IO.Path]::Combine(${env:ProgramFiles(x86)}, 'Nodist', 'bin')
+  # $env:Path += ";$($nodist)"
   # nodist + 10
   # nodist + 12
   # nodist + 14
-  nodist + 15
-  nodist global 15
-  nodist npm global match
-  npm install -g npx yarn
+  # nodist + 15
+  # nodist global 15
+  # nodist npm global match
+  # npm install -g npx yarn
   # npm install -g windows-build-tools # !! Freeze !!
 }
 
@@ -222,12 +222,12 @@ if ($win8 -or $win10) {
   # cinst --cacheLocation="$cache" vagrant
 
   # Docker
-  if ($win10pro) {
-    cinst --cacheLocation="$cache" docker-desktop
-  }
-  else {
-    cinst --cacheLocation="$cache" docker-toolbox
-  }
+  # if ($win10pro) {
+  #   cinst --cacheLocation="$cache" docker-desktop
+  # }
+  # else {
+  #   cinst --cacheLocation="$cache" docker-toolbox
+  # }
 
   # WSL
   # cinst --cacheLocation="$cache" wsl-ubuntu-2004
