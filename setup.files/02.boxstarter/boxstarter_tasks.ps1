@@ -186,7 +186,7 @@ if ($win8 -or $win10) {
   $env:Path += ";$($nvm)"
   nvm install latest
   nvm use (nvm list)
-  npm install -g npm
+  # npm install -g npm # <- Fail
   npm install -g yarn
   # npm install -g windows-build-tools # !! Freeze !!
 }
