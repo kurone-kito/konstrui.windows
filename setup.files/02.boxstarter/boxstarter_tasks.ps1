@@ -21,23 +21,23 @@ cinst --cacheLocation="$cache" boxstarter
 ### Winows 8.1 or 10 features
 if ($win8 -or $win10) {
   # Without vagrant
-  # if ($win10pro -and !(Test-Path -Path C:\vagrant)) {
-  #   cinst --cacheLocation="$cache" Microsoft-Hyper-V-All --source windowsfeatures
-  #   cinst --cacheLocation="$cache" VirtualMachinePlatform --source windowsfeatures
-  #   cinst --cacheLocation="$cache" HypervisorPlatform --source windowsfeatures
-  #   cinst --cacheLocation="$cache" Containers-DisposableClientVM --source windowsfeatures
-  # }
+  if ($win10pro -and !(Test-Path -Path C:\vagrant)) {
+    cinst --cacheLocation="$cache" Microsoft-Hyper-V-All --source windowsfeatures
+    cinst --cacheLocation="$cache" VirtualMachinePlatform --source windowsfeatures
+    cinst --cacheLocation="$cache" HypervisorPlatform --source windowsfeatures
+    cinst --cacheLocation="$cache" Containers-DisposableClientVM --source windowsfeatures
+  }
 
   # NFS
-  # cinst --cacheLocation="$cache" ServicesForNFS-ClientOnly --source windowsfeatures
-  # cinst --cacheLocation="$cache" ClientForNFS-Infrastructure --source windowsfeatures
-  # cinst --cacheLocation="$cache" NFS-administration --source windowsfeatures
+  cinst --cacheLocation="$cache" ServicesForNFS-ClientOnly --source windowsfeatures
+  cinst --cacheLocation="$cache" ClientForNFS-Infrastructure --source windowsfeatures
+  cinst --cacheLocation="$cache" NFS-administration --source windowsfeatures
 }
 
 & { ### Common Windows features
   # Connection
-  # cinst --cacheLocation="$cache" TelnetClient --source windowsfeatures
-  # cinst --cacheLocation="$cache" TFTP --source windowsfeatures
+  cinst --cacheLocation="$cache" TelnetClient --source windowsfeatures
+  cinst --cacheLocation="$cache" TFTP --source windowsfeatures
 
   # Others
   cinst --cacheLocation="$cache" NetFx3 --source windowsfeatures
@@ -74,7 +74,7 @@ if ($win8 -or $win10) {
 
 & { # Devices
   # cinst --cacheLocation="$cache" autohotkey
-  # cinst --cacheLocation="$cache" drobo-dashboard
+  cinst --cacheLocation="$cache" drobo-dashboard
   cinst --cacheLocation="$cache" logicoolgaming
   # cinst --cacheLocation="$cache" xbox360-controller # <- depended to GUI interactive
 }
@@ -126,7 +126,7 @@ if ($win8 -or $win10) {
 & { ### Basic dev
   # SDKs
   # cinst --cacheLocation="$cache" netfx-4.7.2-devpack
-  # cinst --cacheLocation="$cache" dotnetcore-sdk
+  cinst --cacheLocation="$cache" dotnetcore-sdk
   # cinst --cacheLocation="$cache" openjdk
   # cinst --cacheLocation="$cache" python # Need for aws
 
@@ -136,7 +136,7 @@ if ($win8 -or $win10) {
 & { ### Editor
   # cinst --cacheLocation="$cache" atom
   # cinst --cacheLocation="$cache" boostnote
-  # cinst --cacheLocation="$cache" grammarly
+  cinst --cacheLocation="$cache" grammarly
   # cinst --cacheLocation="$cache" notion
   # cinst --cacheLocation="$cache" sublimetext3.app
   cinst --cacheLocation="$cache" vim --params "'/NoDesktopShortcuts /RestartExplorer'"
@@ -199,7 +199,7 @@ if ($win8 -or $win10) {
 
 & { ### Web dev
   # cinst --cacheLocation="$cache" python # Need for aws
-  # cinst --cacheLocation="$cache" mkcert
+  cinst --cacheLocation="$cache" mkcert
   # cinst --cacheLocation="$cache" awscli
 }
 
@@ -212,7 +212,7 @@ if ($win8 -or $win10) {
 
 & { ### SNS, IM
   # cinst --cacheLocation="$cache" discord
-  # cinst --cacheLocation="$cache" keybase
+  cinst --cacheLocation="$cache" keybase
   # cinst --cacheLocation="$cache" zoom
   # You should install FB-Messenger, Skype and Slack from store.
 }
@@ -222,12 +222,12 @@ if ($win8 -or $win10) {
   # cinst --cacheLocation="$cache" vagrant
 
   # Docker
-  # if ($win10pro) {
-  #   cinst --cacheLocation="$cache" docker-desktop
-  # }
-  # else {
-  #   cinst --cacheLocation="$cache" docker-toolbox
-  # }
+  if ($win10pro) {
+    cinst --cacheLocation="$cache" docker-desktop
+  }
+  else {
+    cinst --cacheLocation="$cache" docker-toolbox
+  }
 
   # WSL
   # cinst --cacheLocation="$cache" wsl-ubuntu-2004
@@ -238,7 +238,7 @@ if ($win8 -or $win10) {
   # You should install CineBench and Crystal from store.
 
   # Fonts
-  # cinst --cacheLocation="$cache" noto
+  cinst --cacheLocation="$cache" noto
 
   # Utils
   # cinst --cacheLocation="$cache" authy-desktop
